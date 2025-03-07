@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 246 80% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 246 80% 60%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 246 80% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 246 80% 60%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+/* Custom styles for Kanban board */
+.board-container {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mt-5;
+}
+
+.board-column {
+  @apply bg-slate-50 border border-slate-200 rounded-3xl p-4 dark:bg-gray-800 dark:border-gray-700;
+}
+
+.board-column-header {
+  @apply mb-4;
+}
+
+.board-column-header h2 {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200;
+}
+
+.board-card {
+  @apply bg-white border border-slate-200 rounded-3xl p-4 mb-4 shadow-sm dark:bg-gray-900 dark:border-gray-700;
+}
+
+.card-label {
+  @apply inline-block text-xs font-semibold py-1 px-2 rounded uppercase mb-2;
+}
+
+.label-important {
+  @apply bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300;
+}
+
+.label-not-important {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.label-ok {
+  @apply bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300;
+}
+
+.label-high-priority {
+  @apply bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300;
+}
+
+.progress-bar {
+  @apply relative w-full h-2 bg-gray-100 rounded mb-3 dark:bg-gray-700;
+}
+
+.progress-fill {
+  @apply h-full bg-primary rounded transition-all duration-300;
+}
+
+.status-dot {
+  @apply inline-block w-2 h-2 rounded-full mr-2;
+}
+
+.status-dot.todo {
+  @apply bg-blue-500;
+}
+
+.status-dot.in-progress {
+  @apply bg-amber-500;
+}
+
+.status-dot.completed {
+  @apply bg-emerald-500;
+}
+
