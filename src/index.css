@@ -27,16 +27,16 @@
     --ring: 246 80% 60%;
     --radius: 0.5rem;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+ 
+  /* .dark {
+    --background: 222.2 47.4% 11.2%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 47.4% 11.2%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
     --primary: 246 80% 60%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -48,7 +48,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 246 80% 60%;
-  }
+  } */
 }
 
 @layer base {
@@ -67,7 +67,7 @@
 }
 
 .board-column {
-  @apply bg-slate-50 border border-slate-200 rounded-3xl p-4 dark:bg-gray-800 dark:border-gray-700;
+  @apply bg-slate-50 border border-slate-200 rounded-3xl p-4 dark:bg-gray-800 dark:border-gray-700 h-fit;
 }
 
 .board-column-header {
@@ -79,7 +79,7 @@
 }
 
 .board-card {
-  @apply bg-white border border-slate-200 rounded-3xl p-4 mb-4 shadow-sm dark:bg-gray-900 dark:border-gray-700;
+  @apply bg-white border border-slate-200 rounded-3xl p-4 mb-4 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-900 dark:border-gray-700 dark:hover:border-gray-600;
 }
 
 .card-label {
@@ -87,19 +87,19 @@
 }
 
 .label-important {
-  @apply bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300;
+  @apply bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300;
 }
 
 .label-not-important {
-  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300;
 }
 
 .label-ok {
-  @apply bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300;
+  @apply bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300;
 }
 
 .label-high-priority {
-  @apply bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300;
+  @apply bg-red-100 text-red-600 dark:bg-red-900/50 dark:text-red-300;
 }
 
 .progress-bar {
@@ -126,3 +126,160 @@
   @apply bg-emerald-500;
 }
 
+
+/* Add styles for the new page content */
+.page-container {
+  @apply p-6;
+}
+
+.page-header {
+  @apply flex items-center gap-2 mb-6;
+}
+
+.page-title {
+  @apply text-2xl font-bold;
+}
+
+.page-content {
+  @apply bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-xl p-6 shadow-sm;
+}
+
+.section-title {
+  @apply text-xl font-semibold mb-4 dark:text-gray-100;
+}
+
+.section-description {
+  @apply text-gray-500 dark:text-gray-400 mb-6;
+}
+
+.card-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.dashboard-card {
+  @apply bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-all;
+}
+
+.dashboard-card-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.dashboard-card-title {
+  @apply text-lg font-semibold dark:text-white;
+}
+
+.dashboard-card-content {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.stat-card {
+  @apply bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl p-4 shadow-sm;
+}
+
+.stat-value {
+  @apply text-2xl font-bold dark:text-white;
+}
+
+.stat-label {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.data-table {
+  @apply w-full border-collapse;
+}
+
+.data-table th {
+  @apply text-left p-3 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium border-b dark:border-gray-700;
+}
+
+.data-table td {
+  @apply p-3 border-b dark:border-gray-700 text-gray-800 dark:text-gray-200;
+}
+
+.data-table tr:hover {
+  @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300;
+}
+
+.badge-info {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300;
+}
+
+.badge-neutral {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+.form-input {
+  @apply w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+.form-select {
+  @apply w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+.form-checkbox {
+  @apply rounded border-gray-300 dark:border-gray-700 text-primary focus:ring-primary;
+}
+
+.form-radio {
+  @apply rounded-full border-gray-300 dark:border-gray-700 text-primary focus:ring-primary;
+}
+
+.tab-group {
+  @apply flex border-b border-gray-200 dark:border-gray-700 mb-6;
+}
+
+.tab {
+  @apply px-4 py-2 text-sm font-medium border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600;
+}
+
+.tab-active {
+  @apply border-primary text-primary;
+}
+
+.accordion {
+  @apply border border-gray-200 dark:border-gray-700 rounded-md mb-2;
+}
+
+.accordion-header {
+  @apply flex justify-between items-center p-4 w-full text-left text-gray-900 dark:text-gray-100 font-medium bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none;
+}
+
+.accordion-content {
+  @apply p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300;
+}
+
+.tab-button {
+  @apply px-4 py-2 rounded-lg font-medium transition-colors;
+}
+
+.tab-button.active {
+  @apply bg-primary/10 text-primary;
+}
+
+.tab-button:not(.active) {
+  @apply text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+}

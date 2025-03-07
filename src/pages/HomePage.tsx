@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Search, Share, Plus, PlusCircle, Moon, Sun } from "lucide-react"
+import { Search, Share, Plus, PlusCircle } from "lucide-react"
 import { Button } from "../components/ui/Button"
 import KanbanByStatus from "../components/home/KanbanByStatus"
 import KanbanByTotalTasks from "../components/home/KanbanByTotalTasks"
@@ -26,7 +26,7 @@ export default function HomePage() {
   const [sortBy, setSortBy] = useState("Newest")
   const [showSortMenu, setShowSortMenu] = useState(false)
 
-  const { tasks, setTasks, useApi, setUseApi, isLoading, setIsLoading, darkMode, toggleDarkMode } = useAppContext()
+  const { tasks, setTasks, useApi, setUseApi, isLoading, setIsLoading } = useAppContext()
 
   useEffect(() => {
     const loadData = async () => {
@@ -59,14 +59,6 @@ export default function HomePage() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Kanban Dashboard🃏</h1>
         <div className="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleDarkMode}
-            title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
           <Button variant="outline" size="icon">
             <Search className="h-4 w-4" />
           </Button>

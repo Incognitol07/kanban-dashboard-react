@@ -11,8 +11,6 @@ type AppContextType = {
   setUseApi: (useApi: boolean) => void
   isLoading: boolean
   setIsLoading: (isLoading: boolean) => void
-  darkMode: boolean
-  toggleDarkMode: () => void
 }
 
 // Create the context with default values
@@ -23,8 +21,6 @@ const AppContext = createContext<AppContextType>({
   setUseApi: () => {},
   isLoading: false,
   setIsLoading: () => {},
-  darkMode: false,
-  toggleDarkMode: () => {},
 })
 
 // Custom hook to use the app context
@@ -35,17 +31,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [tasks, setTasks] = useState<Task[]>([])
   const [useApi, setUseApi] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [darkMode, setDarkMode] = useState(false)
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-    // Toggle the 'dark' class on the document element
-    if (!darkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }
 
   return (
     <AppContext.Provider
@@ -56,8 +41,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setUseApi,
         isLoading,
         setIsLoading,
-        darkMode,
-        toggleDarkMode,
       }}
     >
       {children}
