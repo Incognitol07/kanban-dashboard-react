@@ -4,7 +4,6 @@ import HomePage from "./pages/HomePage"
 import TasksPage from "./pages/TasksPage"
 import UsersPage from "./pages/UsersPage"
 import ApisPage from "./pages/ApisPage"
-import SubscriptionPage from "./pages/SubscriptionPage"
 import SettingsPage from "./pages/SettingsPage"
 import HelpPage from "./pages/HelpPage"
 
@@ -16,7 +15,6 @@ function App() {
         <Route path="tasks" element={<TasksPage />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="apis" element={<ApisPage />} />
-        <Route path="subscription" element={<SubscriptionPage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="help" element={<HelpPage />} />
       </Route>

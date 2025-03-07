@@ -7,7 +7,6 @@ import {
   ListChecks,
   Users,
   CuboidIcon as Cube,
-  CreditCard,
   Settings,
   HelpCircle,
   Search,
@@ -21,7 +20,6 @@ const menuItems = [
   { icon: ListChecks, label: "Tasks", path: "/tasks" },
   { icon: Users, label: "Users", path: "/users", count: 2 },
   { icon: Cube, label: "APIs", path: "/apis" },
-  { icon: CreditCard, label: "Subscription", path: "/subscription" },
   { icon: Settings, label: "Settings", path: "/settings" },
   { icon: HelpCircle, label: "Help & Support", path: "/help" },
 ]
